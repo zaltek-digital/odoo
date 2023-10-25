@@ -5,6 +5,5 @@ echo '\n' >> .odoo.conf
 if [ ! -f ".odoo1.conf" ]; then
   touch .odoo1.conf
 fi
-
-cat .odoo1.conf | sed -e '1,/#END/ d' | sed '/^$/d' >> .odoo.conf 
+cat .odoo1.conf | grep admin_passwd | head -1 >> .odoo.conf
 cat .odoo.conf
